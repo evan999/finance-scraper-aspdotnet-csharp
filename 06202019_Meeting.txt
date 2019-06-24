@@ -1,0 +1,21 @@
+Daily Meeting - 6/20/2019
+
+What was completed:
+
+Environment set up. ChromeDriver set up.
+
+Test for ChromeDriver functionality.
+
+Trello board set up.
+
+Today's goals:
+
+1. Create Yahoo Finance Account.
+2. Save at least 10 stocks to profile. 
+3. With scraper, navigate to Yahoo's login page.
+
+Continue working for at least three hours. If three above items are completed,
+continue working.
+
+Phase 1 Deadline: Monday, 7/1/2019
+

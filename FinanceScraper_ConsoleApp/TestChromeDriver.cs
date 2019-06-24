@@ -18,7 +18,7 @@ namespace FinanceScraper_ConsoleApp
     {
         public static void RunTestDriver()
         {
-            // Create a new instance of the Firefox driver.
+            // Create a new instance of the Chrome driver.
             // Note that it is wrapped in a using clause so that the browser is closed 
             // and the webdriver is disposed (even in the face of exceptions).
 
