@@ -1,0 +1,41 @@
+Daily Meeting - 6/24/19
+
+What was completed:
+
+Create Yahoo Finance Account
+Save at least 10 stocks to profile.
+With scraper, navigate to Yahoo’s login page.
+
+Today’s goals:
+
+Login user with credentials
+Further navigate to Yahoo’s finance page
+Find the data on the page that the user wants to scrape
+
+What data?
+
+The data the user wants to scrape is 
+
+One phase due each week. 
+
+No class next week, so demo will be pushed back a week. I will continue working from home. 
+
+Phase 1 Deadline: 7/8/2019?
+
+Status: On track for meeting deadline.
+
+Phase 2 Deadline: 7/15/2019
+
+Phase 3 Deadline: 7/22/2019
+
+Phase 4 Deadline: 7/29/2019
+
+
+Plan: 
+
+Complete Phase 1 items. Goal is to complete Phase 1 by Friday. This seems like a reachable goal. 
+Start Phase 2 when Phase 1 is complete. I want to start working on Phase 2 by no later than 
+Monday this coming week.
+
+
+
