@@ -18,7 +18,7 @@ namespace FinanceScraper_ConsoleApp
 
             driver.Navigate().GoToUrl("https://finance.yahoo.com/");
 
-            WebDriverWait waitLogin = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            WebDriverWait waitLogin = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
             waitLogin.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("uh-signedin")));
 
             IWebElement loginButton = driver.FindElement(By.Id("uh-signedin"));
@@ -41,22 +41,16 @@ namespace FinanceScraper_ConsoleApp
 
             driver.Navigate().GoToUrl("https://finance.yahoo.com/portfolio/p_1/view/v1");
 
-            // WebDriverWait waitDataTable = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            // waitDataTable.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.ClassName("W(100 %)")));
-            // IWebElement dataTable = driver.FindElement(By.ClassName("W(100 %)"));
+            WebDriverWait waitDataTable = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            waitDataTable.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath("//tr")));
 
-
-            
-            // WebDriverWait waitStocks = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            // waitStocks.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("login-passwd")));
-
-
-            /*
-            for (int stock = 0; stock < 10; stock++)
+            IWebElement stockTable = driver.FindElement(By.XPath("//tr"));
+            List<IWebElement> stocks = driver.FindElements(By.XPath("//tr")).ToList(); 
+            foreach (IWebElement stock in stocks)
             {
-
+                var stockData = stock.Text;
+                Console.Write(stockData);     
             }
-            */
         }
     }
 }

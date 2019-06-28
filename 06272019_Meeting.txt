@@ -1,0 +1,10 @@
+Meeting - 6/27/2019
+
+Still working on getting the XPath of the stock data.
+
+Today's item:
+
+Continue working on retrieving the XPath of the rows in the stock table.
+Output the data to the console.
+Ask coworkers for assistance if not making progress.
+

@@ -1,0 +1,16 @@
+Daily Meeting - 6/25/2019
+
+Items completed yesterday:
+
+1. Login user with credentials
+2. Further navigate to Yahoo's finance page.
+
+Item not completed:
+
+1. Find the data the user wants to scrape.
+
+Today's goal items:
+
+1. Research XPath.
+2. Log the stock data into the console.
+
