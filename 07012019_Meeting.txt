@@ -1,0 +1,19 @@
+7/1/19 Meeting
+
+Phase 1 complete. Deadline achieved.
+
+Phase 2 Deadline: 7/15/19 6:00 PM EST
+
+Today's items:
+
+Objectify code and refactor
+	-Make classes and methods to improve structure of code.
+Create database 
+Define table schema, columns, and datatypes
+
+How many tables are needed to represent stock data?
+
+
+
+
+
