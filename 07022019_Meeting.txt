@@ -1,0 +1,25 @@
+7/2/2019 - Meeting
+
+Items completed yesterday:
+
+-Create the Finance database
+-Create the table schema, assigning column names and datatypes. 
+
+Possible approaches for database connection to Console App:
+
+-Entity Framework
+-Connection string
+
+Chosen method: Entity Framework
+
+This seems like a good place to start, and it may smoothen some of the process 
+in connecting the database to the app in order to achieve an MVP on time.
+
+
+Items to work:
+
+-Research Entity framework
+-Create Entity DB Model for Finance database and SQL Server connection
+-Connect ADO Entity Object to console app via inheritance.
+
+
