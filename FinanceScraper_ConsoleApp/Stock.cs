@@ -11,7 +11,8 @@ namespace FinanceScraper_ConsoleApp
 {
     using System;
     using System.Collections.Generic;
-    
+
+
     public partial class Stock
     {
         public int Id { get; set; }

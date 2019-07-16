@@ -13,10 +13,10 @@ namespace FinanceScraper_ConsoleApp
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FinanceEntities : DbContext
+    public partial class FinanceContext : DbContext
     {
-        public FinanceEntities()
-            : base("name=FinanceEntities")
+        public FinanceContext()
+            : base("name=FinanceContext")
         {
         }
     

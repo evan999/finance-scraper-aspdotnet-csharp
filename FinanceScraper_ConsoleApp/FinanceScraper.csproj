@@ -77,53 +77,55 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FinanceDBModel.Context.cs">
+    <Compile Include="FinanceModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FinanceDBModel.Context.tt</DependentUpon>
+      <DependentUpon>FinanceModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="FinanceDBModel.cs">
+    <Compile Include="FinanceModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FinanceDBModel.tt</DependentUpon>
+      <DependentUpon>FinanceModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="FinanceDBModel.Designer.cs">
+    <Compile Include="FinanceModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>FinanceDBModel.edmx</DependentUpon>
+      <DependentUpon>FinanceModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Stock.cs">
-      <DependentUpon>FinanceDBModel.tt</DependentUpon>
+      <DependentUpon>FinanceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="WebDriver.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
-    <EntityDeploy Include="FinanceDBModel.edmx">
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="FinanceModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>FinanceDBModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>FinanceModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="FinanceDBModel.edmx.diagram">
-      <DependentUpon>FinanceDBModel.edmx</DependentUpon>
+    <None Include="FinanceModel.edmx.diagram">
+      <DependentUpon>FinanceModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="FinanceDBModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FinanceDBModel.edmx</DependentUpon>
-      <LastGenOutput>FinanceDBModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="FinanceDBModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>FinanceDBModel.edmx</DependentUpon>
-      <LastGenOutput>FinanceDBModel.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="FinanceModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FinanceModel.edmx</DependentUpon>
+      <LastGenOutput>FinanceModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="FinanceModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>FinanceModel.edmx</DependentUpon>
+      <LastGenOutput>FinanceModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

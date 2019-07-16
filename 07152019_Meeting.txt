@@ -1,0 +1,25 @@
+7/15/19 Meeting
+
+Phase 2
+
+Goal:
+
+Debug Phase 2 and complete ASAP! 
+
+Project slightly behind, but getting back on track. Must troubleshoot bugs and issues with 
+Phase 2 deliverables, then move to Phase 3: Front-End (ASP.NET).
+
+Switched back to Console App for the time being. Implementing scraper and database functionality 
+will be simpler with less moving parts to submit. Porting code over to ASP.NET application shouldn't 
+be too difficult.
+
+Problems to fix:
+
+-Identity bug caused (likely) by the Id PK
+-Indexing issues - is all the data being stored?
+-Ensure all stock data in the StockList is stored in the database into 11 records.
+
+
+
+
+
