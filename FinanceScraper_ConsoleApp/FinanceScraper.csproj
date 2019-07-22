@@ -97,6 +97,9 @@
     <Compile Include="Stock.cs">
       <DependentUpon>FinanceModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Stocks1.cs">
+      <DependentUpon>FinanceModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="WebDriver.cs" />
   </ItemGroup>
   <ItemGroup>

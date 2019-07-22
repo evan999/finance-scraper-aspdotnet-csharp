@@ -12,7 +12,7 @@ namespace FinanceScraper_ConsoleApp
     using System;
     using System.Collections.Generic;
     
-    public partial class Stock
+    public partial class Stocks1
     {
         public int Id { get; set; }
         public string Symbol { get; set; }
@@ -24,6 +24,8 @@ namespace FinanceScraper_ConsoleApp
         public string Volume { get; set; }
         public string Shares { get; set; }
         public string AverageVolume { get; set; }
+        public string DayRange { get; set; }
+        public string C52WeekRange { get; set; }
         public string MarketCap { get; set; }
     }
 }

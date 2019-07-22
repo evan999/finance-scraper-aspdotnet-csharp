@@ -4,8 +4,26 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FinanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FinanceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Stocks">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Symbol" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="LastPrice" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Change" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="ChangeRate" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Currency" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="MarketTime" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Volume" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Shares" Type="varchar" MaxLength="10" />
+          <Property Name="AverageVolume" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DayRange" Type="varchar" MaxLength="20" />
+          <Property Name="52WeekRange" Type="varchar" MaxLength="20" />
+          <Property Name="MarketCap" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stocks1">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -25,9 +43,9 @@
         </EntityType>
         <EntityContainer Name="FinanceModelStoreContainer">
           <EntitySet Name="Stocks" EntityType="Self.Stocks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stocks1" EntityType="Self.Stocks1" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FinanceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -35,7 +53,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Symbol" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LastPrice" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Change" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
@@ -45,13 +63,30 @@
           <Property Name="Volume" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Shares" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="AverageVolume" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="DayRange" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="C52WeekRange" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="MarketCap" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityContainer Name="FinanceContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Stocks" EntityType="Self.Stock" />
+          <EntitySet Name="Stocks1" EntityType="FinanceModel.Stocks1" />
         </EntityContainer>
+        <EntityType Name="Stocks1">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Symbol" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LastPrice" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Change" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ChangeRate" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Currency" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MarketTime" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Volume" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Shares" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AverageVolume" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DayRange" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C52WeekRange" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MarketCap" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -71,9 +106,26 @@
                 <ScalarProperty Name="Volume" ColumnName="Volume" />
                 <ScalarProperty Name="Shares" ColumnName="Shares" />
                 <ScalarProperty Name="AverageVolume" ColumnName="AverageVolume" />
-                <ScalarProperty Name="DayRange" ColumnName="DayRange" />
-                <ScalarProperty Name="C52WeekRange" ColumnName="52WeekRange" />
                 <ScalarProperty Name="MarketCap" ColumnName="MarketCap" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stocks1">
+            <EntityTypeMapping TypeName="FinanceModel.Stocks1">
+              <MappingFragment StoreEntitySet="Stocks1">
+                <ScalarProperty Name="MarketCap" ColumnName="MarketCap" />
+                <ScalarProperty Name="C52WeekRange" ColumnName="52WeekRange" />
+                <ScalarProperty Name="DayRange" ColumnName="DayRange" />
+                <ScalarProperty Name="AverageVolume" ColumnName="AverageVolume" />
+                <ScalarProperty Name="Shares" ColumnName="Shares" />
+                <ScalarProperty Name="Volume" ColumnName="Volume" />
+                <ScalarProperty Name="MarketTime" ColumnName="MarketTime" />
+                <ScalarProperty Name="Currency" ColumnName="Currency" />
+                <ScalarProperty Name="ChangeRate" ColumnName="ChangeRate" />
+                <ScalarProperty Name="Change" ColumnName="Change" />
+                <ScalarProperty Name="LastPrice" ColumnName="LastPrice" />
+                <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -26,5 +26,6 @@ namespace FinanceScraper_ConsoleApp
         }
     
         public virtual DbSet<Stock> Stocks { get; set; }
+        public virtual DbSet<Stocks1> Stocks1 { get; set; }
     }
 }

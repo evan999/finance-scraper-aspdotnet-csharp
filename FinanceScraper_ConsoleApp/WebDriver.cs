@@ -52,117 +52,67 @@ namespace FinanceScraper
             WebDriverWait waitDataTable = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             waitDataTable.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementExists(By.XPath("//tr")));
 
-            IWebElement stockTable = driver.FindElement(By.XPath("//tr"));
+            IWebElement stockTable = driver.FindElement(By.XPath("//tbody"));
             List<IWebElement> stocks = driver.FindElements(By.XPath("//tr")).ToList();
 
             List<IWebElement> rows = stockTable.FindElements(By.XPath("//tr")).ToList();
             int rowsCount = rows.Count;
 
-
-
             using (var context = new FinanceContext())
             {
+                //var stockTable = driver.FindElement(By.XPath("//tbody"));
+                //List<IWebElement> lstTrElem = new List<IWebElement>(stockTable.FindElements(By.XPath("//tr")));
+                // String strRowData = "";
+
+                
                 for (int row = 1; row < rowsCount; row++)
                 {
-
-                    List<IWebElement> cells = driver.FindElements(By.XPath("//tr//td")).ToList();
+                    List<IWebElement> cells = rows.ElementAt(row).FindElements(By.TagName("td")).ToList();
                     int cellsCount = cells.Count;
 
-                    for (int cell = 0; cell < cellsCount; cell++)
+
+                    // string cellText = cells.ElementAt(cell).ToString();
+                    // Console.WriteLine("Data: " + cellText);
+
+                    string symbolData = cells.ElementAt(0).Text;
+                    Console.WriteLine("Symbol: " + symbolData);
+                    string lastPriceData = cells.ElementAt(1).Text;
+                    Console.WriteLine("Last Price: " + lastPriceData);
+                    string changeData = cells.ElementAt(2).Text;
+                    Console.WriteLine("Change: " + changeData);
+                    string changeRateData = cells.ElementAt(3).Text;
+                    Console.WriteLine("Change Rate: " + changeRateData);
+                    string currencyData = cells.ElementAt(4).Text;
+                    Console.WriteLine("Currency: " + currencyData);
+                    string marketTimeData = cells.ElementAt(5).Text;
+                    Console.WriteLine("Market Time: " + marketTimeData);
+                    string volumeData = cells.ElementAt(6).Text;
+                    Console.WriteLine("Volume: " + volumeData);
+                    string shareData = cells.ElementAt(7).Text;
+                    Console.WriteLine("Shares: " + shareData);
+                    string averageVolumeData = cells.ElementAt(8).Text;
+                    Console.WriteLine("Avg Vol Data: " + averageVolumeData);
+                    string marketCapData = cells.ElementAt(12).Text;
+                    Console.WriteLine("Market Cap: " + marketCapData);
+
+                    var stockRecord = new Stock
                     {
-                        string symbolData = cells[0].Text;
-                        Console.WriteLine("Symbol: " + symbolData);
-                        string lastPriceData = cells[1].Text;
-                        Console.WriteLine("Last Price: " + lastPriceData);
-                        string changeData = driver.FindElements(By.XPath("//tr//td"))[2].Text;
-                        Console.WriteLine("Change: " + changeData);
-                        string changeRateData = driver.FindElements(By.XPath("//tr//td"))[3].Text;
-                        Console.WriteLine("Change Rate: " + changeRateData);
-                        string currencyData = driver.FindElements(By.XPath("//tr//td"))[4].Text;
-                        Console.WriteLine("Currency: " + currencyData);
-                        string marketTimeData = driver.FindElements(By.XPath("//tr//td"))[5].Text;
-                        Console.WriteLine("Market Time: " + marketTimeData);
-                        string volumeData = driver.FindElements(By.XPath("//tr//td"))[6].Text;
-                        Console.WriteLine("Volume: " + volumeData);
-                        string shareData = driver.FindElements(By.XPath("//tr//td"))[7].Text;
-                        Console.WriteLine("Shares: " + shareData);
-                        string averageVolumeData = driver.FindElements(By.XPath("//tr//td"))[8].Text;
-                        Console.WriteLine("Avg Vol Data: " + averageVolumeData);
-                        string dayRangeData = driver.FindElements(By.XPath("//tr//td"))[9].Text;
-                        Console.WriteLine("Day Range Data: " + dayRangeData);
-                        string c52WeekRangeData = driver.FindElements(By.XPath("//tr//td"))[10].Text;
-                        Console.WriteLine("C52: " + c52WeekRangeData);
-                        string marketCapData = driver.FindElements(By.XPath("//tr//td"))[11].Text;
-                        Console.WriteLine("Market Cap: " + marketCapData);
+                        Symbol = symbolData,
+                        LastPrice = lastPriceData,
+                        Change = changeData,
+                        ChangeRate = changeRateData,
+                        Currency = currencyData,
+                        MarketTime = marketTimeData,
+                        Volume = volumeData,
+                        Shares = shareData,
+                        AverageVolume = averageVolumeData,
+                        MarketCap = marketCapData
+                    };
 
-                        var stock = new Stock
-                        {
-                            Symbol = symbolData,
-                            LastPrice = lastPriceData,
-                            Change = changeData,
-                            ChangeRate = changeRateData,
-                            Currency = currencyData,
-                            MarketTime = marketTimeData,
-                            Volume = volumeData,
-                            Shares = shareData,
-                            AverageVolume = averageVolumeData,
-                            DayRange = dayRangeData,
-                            C52WeekRange = c52WeekRangeData,
-                            MarketCap = marketCapData
-                        };
-
-                        context.Stocks.Add(stock);
-                        context.SaveChanges();
-                    }
+                    context.Stocks.Add(stockRecord);
+                    context.SaveChanges();
                 }
             }
-
-            /*
-            foreach (IWebElement stock in stocks)
-            {
-                List<IWebElement> cells = driver.FindElements(By.XPath("//tr//")).ToList();
-
-                var stockData = stock.Text;
-                Console.Write(stockData);
-
-
-
-                // Make a new instance of the Stock object.
-                // Populate the fields by extracting the data of each field
-                // and store it in the corresponding field.
-                // var context = new FinanceEntities();
-                /*
-                var newStock = new Stock
-                {
-                    id = newStock.Id;
-                }
-                */
-
-                /*
-                using (var db = new FinanceEntities("name= newStock"))
-                {
-                    
-                    var newStock = new Stock
-                    {
-
-                    }
-                    
-                    db.Stocks.Add(new Stock
-                    {
-                        id = stock. 
-                    });
-                    db.SaveChanges();
-
-                    var getAllStocks = from x in db.Stocks
-                                       orderby x.Symbol
-                                       select x;
-                
-
-                
-
-
-            }
-            */
         }
     }            
 }
